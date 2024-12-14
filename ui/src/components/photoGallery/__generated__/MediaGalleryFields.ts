@@ -33,6 +33,14 @@ export interface MediaGalleryFields_highRes {
   url: string
 }
 
+export interface MediaGalleryFields_paywall {
+  __typename: 'MediaURL'
+  /**
+   * URL of the lnbits paywall
+   */
+  url: string
+}
+
 export interface MediaGalleryFields_videoWeb {
   __typename: 'MediaURL'
   /**
@@ -57,6 +65,10 @@ export interface MediaGalleryFields {
    * URL to display the photo in full resolution, will be null for videos
    */
   highRes: MediaGalleryFields_highRes | null
+  /**
+   *  URL to get paywall for accessing photo in high resolution, if enabled
+   */
+  paywall: MediaGalleryFields_paywall | null
   /**
    * URL to get the video in a web format that can be played in the browser, will be null for photos
    */

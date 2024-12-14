@@ -74,6 +74,15 @@ func (t ProcessPhotoTask) ProcessMedia(ctx scanner_task.TaskContext, mediaData *
 				return []*models.MediaURL{}, err
 			}
 
+			if os.Getenv("PAYWALL_ENABLED") == "TRUE" {
+				// TODO: generate paywall URLs based on highRes URLs
+				paywalls, err := generatePaywallURLs(ctx.GetDB(), highRes)
+				if err != nil {
+					return []*models.MediaURL{}, err
+				}
+				updatedURLs = append(updatedURLs, paywalls)
+			}
+
 			updatedURLs = append(updatedURLs, highRes)
 		}
 	} else {

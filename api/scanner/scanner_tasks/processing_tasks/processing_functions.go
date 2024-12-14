@@ -11,6 +11,15 @@ import (
 	"gorm.io/gorm"
 )
 
+func generatePaywallURLs(tx *gorm.DB, highResURL *models.MediaURL) (*models.MediaURL, error) {
+
+	paywallURL := &models.MediaURL{
+		MediaID:   highResURL.ID,
+		MediaName: "TODO - generate paywall here",
+	}
+	return paywallURL, nil
+}
+
 func generateSaveHighResJPEG(tx *gorm.DB, media *models.Media, imageData *media_encoding.EncodeMediaData, highResName string, imagePath string, mediaURL *models.MediaURL) (*models.MediaURL, error) {
 
 	err := imageData.EncodeHighRes(imagePath)

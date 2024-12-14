@@ -101,6 +101,7 @@ const (
 	MediaOriginal  MediaPurpose = "original"
 	VideoWeb       MediaPurpose = "video-web"
 	VideoThumbnail MediaPurpose = "video-thumbnail"
+	Paywall        MediaPurpose = "paywall"
 )
 
 type MediaURL struct {

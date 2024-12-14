@@ -44,6 +44,9 @@ export const MEDIA_GALLERY_FRAGMENT = gql`
       width
       height
     }
+    paywall {
+      url
+    }
     highRes {
       url
     }
